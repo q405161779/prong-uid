@@ -1,10 +1,9 @@
 package io.prong.uid.contoller;
 
+import io.prong.uid.service.UidGenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import io.prong.uid.service.UidGenService;
 
 /**
  * UID 测试web服务
