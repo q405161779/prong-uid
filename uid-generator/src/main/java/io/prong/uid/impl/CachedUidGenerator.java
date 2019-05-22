@@ -15,16 +15,6 @@
  */
 package io.prong.uid.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.DisposableBean;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.util.Assert;
-
 import io.prong.uid.BitsAllocator;
 import io.prong.uid.UidGenerator;
 import io.prong.uid.buffer.BufferPaddingExecutor;
@@ -32,6 +22,15 @@ import io.prong.uid.buffer.RejectedPutBufferHandler;
 import io.prong.uid.buffer.RejectedTakeBufferHandler;
 import io.prong.uid.buffer.RingBuffer;
 import io.prong.uid.exception.UidGenerateException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.util.Assert;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Represents a cached implementation of {@link UidGenerator} extends
@@ -51,7 +50,7 @@ import io.prong.uid.exception.UidGenerateException;
  * @author yutianbao
  * @author tangyz
  */
-@ConfigurationProperties(prefix = "prong.uid.CachedUidGenerator")
+@ConfigurationProperties(prefix = "prong.uid.cached-uid-generator")
 public class CachedUidGenerator extends DefaultUidGenerator implements DisposableBean {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(CachedUidGenerator.class);

@@ -29,22 +29,22 @@ spring:
       test-on-return: false # 归还连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能。
       test-while-idle: true # 建议配置为true，不影响性能，并且保证安全性。申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效。
       validation-query: SELECT 1 FROM DUAL  # 用来检测连接是否有效的sql，要求是一个查询语句，常用select 'x'。如果validationQuery为null，testOnBorrow、testOnReturn、testWhileIdle都不会起作用。
-    url: jdbc:mysql://localhost:xxxx/xxxx
-    username: xxxx
-    password: xxxx
+    url: jdbc:mysql://localhost:3306/test1?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: root
 logging: 
   file: ../logs/uid-consumer.log
   level: 
     io.prong.uid: ERROR
-    root: INFO
+    root: info
 # 以下为可选配置, 如未指定将采用默认值
 prong: 
   uid: 
     timeBits: 29
     workerBits: 21
     seqBits: 13
-    epochStr: "2018-11-26"
-    CachedUidGenerator:
+    epochStr: "2019-05-22"
+    cached-uid-generator:
       boost-power: 3          # RingBuffer size扩容参数, 可提高UID生成的吞吐量, 默认:3
       padding-factor: 50      # 指定何时向RingBuffer中填充UID, 取值为百分比(0, 100), 默认为50
       #schedule-interval: 60  # 默认:不配置此项, 即不实用Schedule线程. 如需使用, 请指定Schedule线程时间间隔, 单位:秒

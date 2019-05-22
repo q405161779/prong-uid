@@ -15,17 +15,16 @@
  */
 package io.prong.uid.worker;
 
-import javax.annotation.Resource;
-
+import io.prong.uid.utils.DockerUtils;
+import io.prong.uid.utils.NetUtils;
+import io.prong.uid.worker.dao.WorkerNodeDAO;
+import io.prong.uid.worker.entity.WorkerNodeEntity;
 import org.apache.commons.lang.math.RandomUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
 
-import io.prong.uid.utils.DockerUtils;
-import io.prong.uid.utils.NetUtils;
-import io.prong.uid.worker.dao.WorkerNodeDAO;
-import io.prong.uid.worker.entity.WorkerNodeEntity;
+import javax.annotation.Resource;
 
 /**
  * Represents an implementation of {@link WorkerIdAssigner}, 
@@ -47,6 +46,7 @@ public class DisposableWorkerIdAssigner implements WorkerIdAssigner {
      * 
      * @return assigned worker id
      */
+    @Override
     @Transactional
     public long assignWorkerId() {
         // build worker node entity

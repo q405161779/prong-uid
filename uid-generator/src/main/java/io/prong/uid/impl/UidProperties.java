@@ -1,11 +1,10 @@
 package io.prong.uid.impl;
 
-import java.util.concurrent.TimeUnit;
-
+import io.prong.uid.utils.DateUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-import io.prong.uid.utils.DateUtils;
+import java.util.concurrent.TimeUnit;
 
 /**
  * UID 的配置
